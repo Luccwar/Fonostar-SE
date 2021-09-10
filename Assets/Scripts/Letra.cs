@@ -6,4 +6,8 @@ public class Letra
 {
     public string nome;
     public List<Palavra> palavras;
+    public Letra()
+    {
+        palavras = new List<Palavra>();
+    }
 }

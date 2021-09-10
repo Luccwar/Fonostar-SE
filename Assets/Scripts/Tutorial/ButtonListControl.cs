@@ -7,21 +7,24 @@ using TMPro;
 
 public class ButtonListControl : MonoBehaviour
 {
+    private VoiceController VC;
+    public AudioSource AS;
     [SerializeField]
     private GameObject letraTemplate;
-
-    [SerializeField]
-    private string[] stringArray;
-
     private List<GameObject> letras;
     private GameObject selecaoCanvas;
     private GameObject faseCanvas;
+    private GameObject palavraTexto;
     private GameObject faseImage;
+    private GameObject botaoOuvir;
 
     private void Start() {
+        VC = FindObjectOfType(typeof(VoiceController)) as VoiceController;
         selecaoCanvas = GameObject.Find("SelecaoCanvas");
         faseCanvas = GameObject.Find("FaseCanvas");
+        palavraTexto = GameObject.Find("PalavraTexto");
         faseImage = GameObject.Find("FaseImage");
+        botaoOuvir = GameObject.Find("BotaoOuvir");
         faseCanvas.SetActive(false);
         GenerateList();
     }
@@ -31,27 +34,28 @@ public class ButtonListControl : MonoBehaviour
         if (GetComponentInChildren<ButtonListButton>() != null)
         {
             ButtonListButton[] BLB = GetComponentsInChildren<ButtonListButton>();
-            foreach (ButtonListButton i in BLB)
+            foreach (ButtonListButton l in BLB)
             {
-                Destroy(i.gameObject);
+                Destroy(l.gameObject);
             }
         }
 
 
-        foreach (string i in stringArray)
+        foreach (Letra l in InfoPronuncia.letras)
         {
             GameObject letra = Instantiate(letraTemplate) as GameObject;
             Button[] fases;
             letra.SetActive(true);
 
-            letra.GetComponent<TextMeshProUGUI>().SetText(i);
+            letra.GetComponent<TextMeshProUGUI>().SetText(l.nome);
 
             fases = letra.GetComponentsInChildren<Button>();
             
             for (int x=0;x<fases.Length;x++)
             {
                 int y = x;
-                fases[x].onClick.AddListener(delegate{AparecerCaixa("Fase " + i + y);});
+                fases[x].onClick.AddListener(delegate{AparecerCaixa(l.palavras[y]);});
+                fases[x].GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + l.palavras[y].imagemPalavra);
                 //fases[x].onClick.AddListener(delegate{TrocarCena("Fase " + i + y);});
                 
                 //fases[x].onClick.AddListener(() => { TrocarCena("Fase " + i + x); });
@@ -73,11 +77,20 @@ public class ButtonListControl : MonoBehaviour
         SceneManager.LoadScene(cena);
     }
 
-    void AparecerCaixa(string fase)
+    void TocarAudio(AudioClip audio)
+    {
+        AS.clip = audio;
+        AS.Play();
+    }
+
+    void AparecerCaixa(Palavra palavra)
     {
         selecaoCanvas.SetActive(false);
         faseCanvas.SetActive(true);
-        faseImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + fase);
+        faseImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + palavra.imagemPalavra);
+        palavraTexto.GetComponent<TextMeshProUGUI>().text = palavra.nome;
+        botaoOuvir.GetComponent<Button>().onClick.AddListener(delegate{TocarAudio(Resources.Load<AudioClip>("Audio/" + palavra.somFalado));});
+        PlayerPrefs.SetString("PalavraDesejada", palavra.nome);
     }
 
     public void RetornarSelecao()

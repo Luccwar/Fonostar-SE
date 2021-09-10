@@ -4,97 +4,78 @@ using UnityEngine;
 
 public class Inicial : MonoBehaviour
 {
-    void Start()
+    void Awake()
     {
-        Palavra abacate = new Palavra();
-        abacate.nome = "Abacate";
-        abacate.imagemPalavra = "abacate";
-        abacate.somFalado = "abacate";
-
         Palavra abacaxi = new Palavra();
         abacaxi.nome = "Abacaxi";
         abacaxi.imagemPalavra = "abacaxi";
         abacaxi.somFalado = "abacaxi";
 
-        Palavra acerola = new Palavra();
-        acerola.nome = "Acerola";
-        acerola.imagemPalavra = "acerola";
-        acerola.somFalado = "acerola";
+        Palavra alface = new Palavra();
+        alface.nome = "Alface";
+        alface.imagemPalavra = "alface";
+        alface.somFalado = "alface";
 
-        Palavra amora = new Palavra();
-        amora.nome = "Amora";
-        amora.imagemPalavra = "amora";
-        amora.somFalado = "amora";
+        Palavra anel = new Palavra();
+        anel.nome = "Anel";
+        anel.imagemPalavra = "anel";
+        anel.somFalado = "anel";
 
-        Palavra banana = new Palavra();
-        banana.nome = "Banana";
-        banana.imagemPalavra = "banana";
-        banana.somFalado = "banana";
+        Palavra bala = new Palavra();
+        bala.nome = "Bala";
+        bala.imagemPalavra = "bala";
+        bala.somFalado = "bala";
 
-        Palavra biriba = new Palavra();
-        biriba.nome = "Biribá";
-        biriba.imagemPalavra = "biribá";
-        biriba.somFalado = "biribá";
+        Palavra bambu = new Palavra();
+        bambu.nome = "Bambu";
+        bambu.imagemPalavra = "bambu";
+        bambu.somFalado = "bambu";
 
-        Palavra cacau = new Palavra();
-        cacau.nome = "Cacau";
-        cacau.imagemPalavra = "cacau";
-        cacau.somFalado = "cacau";
+        Palavra buzina = new Palavra();
+        buzina.nome = "Buzina";
+        buzina.imagemPalavra = "buzina";
+        buzina.somFalado = "buzina";
 
-        Palavra caja = new Palavra();
-        caja.nome = "Cajá";
-        caja.imagemPalavra = "cajá";
-        caja.somFalado = "cajá";
+        Palavra capacete = new Palavra();
+        capacete.nome = "Capacete";
+        capacete.imagemPalavra = "capacete";
+        capacete.somFalado = "capacete";
 
-        Palavra caqui = new Palavra();
-        caqui.nome = "Caqui";
-        caqui.imagemPalavra = "caqui";
-        caqui.somFalado = "caqui";
+        Palavra cenoura = new Palavra();
+        cenoura.nome = "Cenoura";
+        cenoura.imagemPalavra = "cenoura";
+        cenoura.somFalado = "cenoura";
 
-        Palavra cereja = new Palavra();
-        cereja.nome = "Cereja";
-        cereja.imagemPalavra = "cereja";
-        cereja.somFalado = "cereja";
-        
-        Palavra cidra = new Palavra();
-        cidra.nome = "Cidra";
-        cidra.imagemPalavra = "cidra";
-        cidra.somFalado = "cidra";
-
-        Palavra coco = new Palavra();
-        coco.nome = "Coco";
-        coco.imagemPalavra = "coco";
-        coco.somFalado = "coco";
-
-        Palavra cupuacu = new Palavra();
-        cupuacu.nome = "Cupuaçu";
-        cupuacu.imagemPalavra = "cupuaçu";
-        cupuacu.somFalado = "cupuaçu";
+        Palavra cueca = new Palavra();
+        cueca.nome = "Cueca";
+        cueca.imagemPalavra = "cueca";
+        cueca.somFalado = "cueca";
         
 
         Letra A = new Letra();
         A.nome = "A";
-        A.palavras.Add(abacate);
         A.palavras.Add(abacaxi);
-        A.palavras.Add(acerola);
-        A.palavras.Add(amora);
+        A.palavras.Add(alface);
+        A.palavras.Add(anel);
 
         Letra B = new Letra();
         B.nome = "B";
-        B.palavras.Add(banana);
-        B.palavras.Add(biriba);
+        B.palavras.Add(bala);
+        B.palavras.Add(bambu);
+        B.palavras.Add(buzina);
 
         Letra C = new Letra();
         C.nome = "C";
-        C.palavras.Add(cacau);
-        C.palavras.Add(caja);
-        C.palavras.Add(caqui);
-        C.palavras.Add(cereja);
-        C.palavras.Add(cidra);
-        C.palavras.Add(coco);
-        C.palavras.Add(cupuacu);
+        C.palavras.Add(capacete);
+        C.palavras.Add(cenoura);
+        C.palavras.Add(cueca);
 
-        
+        InfoPronuncia.letras = new List<Letra>();
+        InfoPronuncia.letras.Add(A);
+        InfoPronuncia.letras.Add(B);
+        InfoPronuncia.letras.Add(C);
+
+        PlayerPrefs.DeleteAll();
     }
 
     void Update()

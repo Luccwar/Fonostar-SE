@@ -73,12 +73,21 @@ public class VoiceController : MonoBehaviour
 
     void OnFinalSpeechResult(string result)
     {
-        uiText.text = result;
+        if (result.Contains(PlayerPrefs.GetString("PalavraDesejada").ToLower()))
+        {
+            uiText.text = "Acertou";
+            string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
+            PlayerPrefs.SetString("LetrasInventario", "LetrasInventario" + letraInventario);
+        }
+        else
+        {
+            uiText.text = "Errou";
+        }
     }
 
     void OnPartialSpeechResult(string result)
     {
-        uiText.text = result;
+        //uiText.text = result;
     }
 
     #endregion
@@ -88,4 +97,5 @@ public class VoiceController : MonoBehaviour
         TextToSpeech.instance.Setting(code, 1, 1);
         SpeechToText.instance.Setting(code);
     }
+    
 }

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PalavraLoja
 {
-    public string premio;
+    public Palavra palavra;
+    public string nomePremio;
     public string imagemPremio;
+    public string descPremio;
+    public string palavraAnterior;
 }

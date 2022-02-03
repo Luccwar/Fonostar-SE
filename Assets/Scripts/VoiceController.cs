@@ -26,6 +26,37 @@ public class VoiceController : MonoBehaviour
         CheckPermission();
     }
 
+    private void Update() {
+        if(Input.GetKeyDown("w"))
+        {
+            string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
+            PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + letraInventario);
+            Debug.Log(PlayerPrefs.GetString("LetrasInventario"));
+        }
+        if(Input.GetKeyDown("space"))
+        {
+            var str = PlayerPrefs.GetString("LetrasInventario");
+            var l = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
+            var i = str.IndexOf(l);
+            string j = "";
+            // i will be the index of the first occurrence of 'p' in str, or -1 if not found.
+
+            if (i == -1)
+            {
+                // not found
+            }
+            else
+            {
+                do
+                {
+                    j = j + l;
+                    i = str.IndexOf(l, i + 1);
+                } while (i != -1);
+            }
+            Debug.Log(j);
+        }
+    }
+
     void CheckPermission()
     {
 #if UNITY_ANDROID
@@ -77,13 +108,14 @@ public class VoiceController : MonoBehaviour
         {
             uiText.text = "Acertou";
             string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
-            PlayerPrefs.SetString("LetrasInventario", "LetrasInventario" + letraInventario);
+            PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + letraInventario);
         }
         else
         {
             uiText.text = "Errou";
         }
     }
+    
 
     void OnPartialSpeechResult(string result)
     {

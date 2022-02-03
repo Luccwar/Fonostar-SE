@@ -7,6 +7,7 @@ public class Usuario
     public string nome;
     public string email;
     public string avatar;
-    public LetraInventario inventario;
-    public List<PalavraLoja> palavrasObtidas;
+    public string inventario;
+    //public LetraInventario inventario;
+    public string palavrasObtidas;
 }

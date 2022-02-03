@@ -6,18 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Carregando.unity
+    guid: ec5ecbe733eb4f94288766d57afb97d4
+  - enabled: 1
+    path: Assets/Scenes/CenaInicial.unity
+    guid: 4357f58076795b649b63b8cd0a78acfa
+  - enabled: 1
     path: Assets/Scenes/ListaLetra.unity
     guid: 37c153583ae89044db637372db40a4a3
-  - enabled: 0
-    path: Assets/Scenes/Siedler/CenaPrincipal.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
-    path: Assets/Scenes/Siedler/CenaEditora.unity
-    guid: 419f551d3ab181846b61ff7f52dfbc6c
-  - enabled: 0
-    path: Assets/Scenes/Siedler/CenaPersonagens.unity
-    guid: 6f18220f52b524c478d7bdf16fd3fa19
-  - enabled: 0
-    path: Assets/Scenes/Fase A0.unity
-    guid: 71259d32035d0964294812f9df37dc66
+  - enabled: 1
+    path: Assets/Scenes/InventarioLetra.unity
+    guid: ec6d7dcb510145a4496516af6a7ba0d2
+  - enabled: 1
+    path: Assets/Scenes/LojaPalavra.unity
+    guid: 22b59175705e25942bf94dba230fa86f
   m_configObjects: {}

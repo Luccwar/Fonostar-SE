@@ -14,17 +14,22 @@ public class ButtonListControl : MonoBehaviour
     private List<GameObject> letras;
     private GameObject selecaoCanvas;
     private GameObject faseCanvas;
+    private GameObject buttonRetornar;
     private GameObject palavraTexto;
     private GameObject faseImage;
     private GameObject botaoOuvir;
+    private GameObject ouvirTexto;
 
     private void Start() {
         VC = FindObjectOfType(typeof(VoiceController)) as VoiceController;
         selecaoCanvas = GameObject.Find("SelecaoCanvas");
         faseCanvas = GameObject.Find("FaseCanvas");
+        buttonRetornar = GameObject.Find("ButtonRetornar");
+        buttonRetornar.GetComponent<Button>().onClick.AddListener(delegate{Inicial.trocarCena();});
         palavraTexto = GameObject.Find("PalavraTexto");
         faseImage = GameObject.Find("FaseImage");
         botaoOuvir = GameObject.Find("BotaoOuvir");
+        ouvirTexto = GameObject.Find("OuvirTexto");
         faseCanvas.SetActive(false);
         GenerateList();
     }
@@ -90,6 +95,7 @@ public class ButtonListControl : MonoBehaviour
         faseImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + palavra.imagemPalavra);
         palavraTexto.GetComponent<TextMeshProUGUI>().text = palavra.nome;
         botaoOuvir.GetComponent<Button>().onClick.AddListener(delegate{TocarAudio(Resources.Load<AudioClip>("Audio/" + palavra.somFalado));});
+        ouvirTexto.GetComponent<TextMeshProUGUI>().text = "Esperando...";
         PlayerPrefs.SetString("PalavraDesejada", palavra.nome);
     }
 

@@ -7,8 +7,6 @@ public class Inicial : MonoBehaviour
 {
     void Awake()
     {
-        PlayerPrefs.DeleteAll();
-
         Palavra abacaxi = new Palavra();
         abacaxi.nome = "Abacaxi";
         abacaxi.imagemPalavra = "abacaxi";

@@ -95,7 +95,7 @@ public class ButtonListControl : MonoBehaviour
         faseImage.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + palavra.imagemPalavra);
         palavraTexto.GetComponent<TextMeshProUGUI>().text = palavra.nome;
         botaoOuvir.GetComponent<Button>().onClick.AddListener(delegate{TocarAudio(Resources.Load<AudioClip>("Audio/" + palavra.somFalado));});
-        ouvirTexto.GetComponent<TextMeshProUGUI>().text = "Esperando...";
+        ouvirTexto.GetComponent<TextMeshProUGUI>().text = "";
         PlayerPrefs.SetString("PalavraDesejada", palavra.nome);
     }
 

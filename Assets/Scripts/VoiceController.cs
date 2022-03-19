@@ -95,6 +95,7 @@ public class VoiceController : MonoBehaviour
     public void StartListening()
     {
         SpeechToText.instance.StartRecording();
+        uiText.text = "Esperando...";
     }
 
     public void StopListening()
@@ -106,12 +107,14 @@ public class VoiceController : MonoBehaviour
     {
         if (result.Contains(PlayerPrefs.GetString("PalavraDesejada").ToLower()))
         {
+            StopListening();
             uiText.text = "Acertou";
             string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
             PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + letraInventario);
         }
         else
         {
+            StopListening();
             uiText.text = "Errou";
         }
     }
@@ -128,6 +131,12 @@ public class VoiceController : MonoBehaviour
     void Setup (string code){
         TextToSpeech.instance.Setting(code, 1, 1);
         SpeechToText.instance.Setting(code);
+    }
+
+    public void AdicionaLetra()
+    {
+        string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
+        PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + letraInventario);
     }
     
 }

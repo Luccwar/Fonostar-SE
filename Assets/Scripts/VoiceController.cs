@@ -105,7 +105,7 @@ public class VoiceController : MonoBehaviour
 
     void OnFinalSpeechResult(string result)
     {
-        if (result.Contains(PlayerPrefs.GetString("PalavraDesejada").ToLower()))
+        if (result.ToLower().Contains(PlayerPrefs.GetString("PalavraDesejada").ToLower()))
         {
             StopListening();
             uiText.text = "Acertou";
@@ -117,6 +117,7 @@ public class VoiceController : MonoBehaviour
             StopListening();
             uiText.text = "Errou";
         }
+        //uiText.text = result;
     }
     
 
@@ -136,6 +137,9 @@ public class VoiceController : MonoBehaviour
     public void AdicionaLetra()
     {
         string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
+        if(letraInventario == "4")
+        PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + "Q");
+        else
         PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + letraInventario);
     }
     

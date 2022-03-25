@@ -149,6 +149,7 @@ public class Inicial : MonoBehaviour
 
         Palavra jipe = new Palavra();
         jipe.nome = "Jipe";
+        jipe.palavraContextual = "Jeep";
         jipe.imagemPalavra = "jipe";
         jipe.somFalado = "jipe";
 
@@ -249,6 +250,7 @@ public class Inicial : MonoBehaviour
 
         Palavra quatro = new Palavra();
         quatro.nome = "Quatro";
+        quatro.palavraContextual = "4";
         quatro.imagemPalavra = "quatro";
         quatro.somFalado = "quatro";
 

@@ -8,7 +8,7 @@ using TMPro;
 public class ButtonListControl : MonoBehaviour
 {
     private VoiceController VC;
-    public AudioSource AS;
+    private AudioSource AS;
     [SerializeField]
     private GameObject letraTemplate;
     private List<GameObject> letras;
@@ -22,6 +22,7 @@ public class ButtonListControl : MonoBehaviour
 
     private void Start() {
         VC = FindObjectOfType(typeof(VoiceController)) as VoiceController;
+        AS = FindObjectOfType(typeof(AudioSource)) as AudioSource;
         selecaoCanvas = GameObject.Find("SelecaoCanvas");
         faseCanvas = GameObject.Find("FaseCanvas");
         buttonRetornar = GameObject.Find("ButtonRetornar");
@@ -96,6 +97,9 @@ public class ButtonListControl : MonoBehaviour
         palavraTexto.GetComponent<TextMeshProUGUI>().text = palavra.nome;
         botaoOuvir.GetComponent<Button>().onClick.AddListener(delegate{TocarAudio(Resources.Load<AudioClip>("Audio/" + palavra.somFalado));});
         ouvirTexto.GetComponent<TextMeshProUGUI>().text = "";
+        if(palavra.palavraContextual != null)
+        PlayerPrefs.SetString("PalavraDesejada", palavra.palavraContextual);
+        else
         PlayerPrefs.SetString("PalavraDesejada", palavra.nome);
     }
 

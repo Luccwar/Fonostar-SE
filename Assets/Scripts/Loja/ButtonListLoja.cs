@@ -44,7 +44,7 @@ public class ButtonListLoja : MonoBehaviour
 
     void GenerateList()
     {
-        Debug.Log(InfoPronuncia.usuarioAtivo.palavrasObtidas);
+        //Debug.Log(InfoPronuncia.usuarioAtivo.palavrasObtidas);
         itens = new List<GameObject>();
         if (GetComponentInChildren<ButtonListButton>() != null)
         {
@@ -145,18 +145,19 @@ public class ButtonListLoja : MonoBehaviour
         textLetrasPossuidas.GetComponent<TextMeshProUGUI>().text = "Letras Possuídas da Palavra: " + letrasPossuidas;
         imagePremio.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
         palavraLojaConfirma = pl;
+        buttonConfirmar.GetComponent<Button>().onClick.RemoveAllListeners();
         buttonConfirmar.GetComponent<Button>().onClick.AddListener(delegate{ConfirmarCompra(pl, usuario);});
     }
 
     void ConfirmarCompra(PalavraLoja pl, Usuario usuario)
     {
+        Debug.Log(usuario.palavrasObtidas);
         //letrasPossuidas = new List<string>();
         //letrasPossuidas = new string[pl.palavra.nome.Length];
         bool achou=true;
         string inventario = usuario.inventario;
         string comprando = pl.palavra.nome.ToUpper();
         //caso a compra falhe e n de pra manter a remocao
-        
         for(int i=0; i < pl.palavra.nome.Length; i++)
         {
             
@@ -198,9 +199,9 @@ public class ButtonListLoja : MonoBehaviour
             panelConfirmacao.GetComponentInChildren<TextMeshProUGUI>().text = "Você comprou o prêmio "+palavraLojaConfirma.nomePremio+"!";
             panelConfirmacao.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
             panelConfirmacao.GetComponentInChildren<Button>().onClick.AddListener(delegate{RetornarLoja();});
-            Debug.Log(usuario.palavrasObtidas);
+            //Debug.Log(usuario.palavrasObtidas);
         }
-        
+        Debug.Log(usuario.palavrasObtidas);
     }
 
     public void RetornarLoja()

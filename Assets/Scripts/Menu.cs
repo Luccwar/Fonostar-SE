@@ -10,7 +10,6 @@ public class Menu : MonoBehaviour
     private GameObject buttonLoja;
     private GameObject buttonApagarDados;
     private GameObject buttonDarLetras;
-    private GameObject buttonSair;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,8 +23,6 @@ public class Menu : MonoBehaviour
         buttonApagarDados.GetComponent<Button>().onClick.AddListener(delegate{ApagarDados();});
         buttonDarLetras = GameObject.Find("ButtonDarLetras");
         buttonDarLetras.GetComponent<Button>().onClick.AddListener(delegate{DarLetras();});
-        buttonSair = GameObject.Find("ButtonSair");
-        buttonSair.GetComponent<Button>().onClick.AddListener(delegate{FecharJogo();});
     }
 
     protected void ApagarDados()

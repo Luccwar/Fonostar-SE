@@ -64,12 +64,13 @@ public class ButtonListLoja : MonoBehaviour
                 item.SetActive(true);
                 if(InfoPronuncia.usuarioAtivo.palavrasObtidas.Contains(pl.palavra.nome.ToUpper()))
                 {
-                    item.transform.Find("ButtonComprar").GetComponent<Button>().interactable = false;
-                    item.transform.Find("ButtonComprar").GetComponentInChildren<TextMeshProUGUI>().text = "Comprado";
+                    item.GetComponent<Button>().interactable = false;
                 }
                 else
                 {
-                    item.transform.Find("ButtonComprar").GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
+                    item.GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
+                    item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                    //item.transform.Find("ImageJaPossui").gameObject.SetActive(true);
                 }
                 item.GetComponentInChildren<TextMeshProUGUI>().SetText(pl.nomePremio);
                 item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
@@ -84,12 +85,15 @@ public class ButtonListLoja : MonoBehaviour
                     item.SetActive(true);
                     if(InfoPronuncia.usuarioAtivo.palavrasObtidas.Contains(pl.palavra.nome.ToUpper()))
                     {
-                        item.transform.Find("ButtonComprar").GetComponent<Button>().interactable = false;
-                        item.transform.Find("ButtonComprar").GetComponentInChildren<TextMeshProUGUI>().text = "Comprado";
+                        //item.transform.Find("ButtonComprar").GetComponent<Button>().interactable = false;
+                        //item.transform.Find("ButtonComprar").GetComponentInChildren<TextMeshProUGUI>().text = "Comprado";
+                        item.GetComponent<Button>().interactable = false;
                     }
                     else
                     {
-                        item.transform.Find("ButtonComprar").GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
+                        //item.transform.Find("ButtonComprar").GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
+                        item.GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
+                        item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
                     }
                     item.GetComponentInChildren<TextMeshProUGUI>().SetText(pl.nomePremio);
                     item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
@@ -110,7 +114,7 @@ public class ButtonListLoja : MonoBehaviour
     {
         lojaCanvas.SetActive(false);
         confirmacaoCanvas.SetActive(true);
-        palavra.GetComponent<TextMeshProUGUI>().text = "A palavra necessária é: "+pl.palavra.nome;
+        palavra.GetComponent<TextMeshProUGUI>().text = /*"A palavra necessária é: "+*/pl.palavra.nome;
 
         if(textPremio!=null)
         textPremio.GetComponent<TextMeshProUGUI>().text = pl.nomePremio;
@@ -142,7 +146,7 @@ public class ButtonListLoja : MonoBehaviour
             }
         }
         letrasPossuidas = new string(charArray);
-        textLetrasPossuidas.GetComponent<TextMeshProUGUI>().text = "Letras Possuídas da Palavra: " + letrasPossuidas;
+        textLetrasPossuidas.GetComponent<TextMeshProUGUI>().text = "Letras possuídas para comprar este item: " + letrasPossuidas;
         imagePremio.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
         palavraLojaConfirma = pl;
         buttonConfirmar.GetComponent<Button>().onClick.RemoveAllListeners();

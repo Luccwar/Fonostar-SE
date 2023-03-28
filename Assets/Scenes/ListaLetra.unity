@@ -2876,6 +2876,7 @@ GameObject:
   - component: {fileID: 454480070}
   - component: {fileID: 454480069}
   - component: {fileID: 454480068}
+  - component: {fileID: 454480071}
   m_Layer: 5
   m_Name: BotaoPronunciar
   m_TagString: Untagged
@@ -2947,19 +2948,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 454480069}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 297919031}
-        m_TargetAssemblyTypeName: VoiceController, Assembly-CSharp
-        m_MethodName: StartListening
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &454480069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2998,6 +2987,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454480066}
   m_CullTransparentMesh: 1
+--- !u!114 &454480071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 454480066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c1b861f58393dc408e20ba823dd275e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  messageText: {fileID: 1627188239}
 --- !u!1 &455532236
 GameObject:
   m_ObjectHideFlags: 0
@@ -3112,7 +3114,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 125, y: -225}
+  m_AnchoredPosition: {x: 125, y: -245}
   m_SizeDelta: {x: 250, y: 450}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &495515134
@@ -6871,7 +6873,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -750, y: 393.66476}
+  m_AnchoredPosition: {x: -750, y: 393.7252}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1096160914
@@ -12092,7 +12094,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 410899361}
   m_HandleRect: {fileID: 410899360}
   m_Direction: 2
-  m_Value: 1
+  m_Value: 0
   m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:

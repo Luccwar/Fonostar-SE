@@ -107,15 +107,17 @@ public class VoiceController : MonoBehaviour
     {
         if (result.ToLower().Contains(PlayerPrefs.GetString("PalavraDesejada").ToLower()))
         {
+            Debug.Log("Acertado");
             StopListening();
-            uiText.text = "Acertou";
+            uiText.text = "Acertadasso";
             string letraInventario = PlayerPrefs.GetString("PalavraDesejada").Substring(0, 1);
             PlayerPrefs.SetString("LetrasInventario", PlayerPrefs.GetString("LetrasInventario") + letraInventario);
         }
         else
         {
+            Debug.Log("Errado");
             StopListening();
-            uiText.text = "Errou";
+            uiText.text = "Erradasso";
         }
         //uiText.text = result;
     }

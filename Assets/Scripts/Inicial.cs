@@ -587,6 +587,59 @@ public class Inicial : MonoBehaviour
         palavraSubconsciente.imagemPalavra = "";
         palavraSubconsciente.somFalado = "subconsciente";
 
+        Palavra palavraCoragem = new Palavra();
+        palavraCoragem.nome = "Coragem";
+        palavraCoragem.imagemPalavra = "";
+        palavraCoragem.somFalado = "coragem";
+
+        Palavra palavraHeroismo = new Palavra();
+        palavraHeroismo.nome = "Heroismo";
+        palavraHeroismo.imagemPalavra = "";
+        palavraHeroismo.somFalado = "heroismo";
+
+        Palavra palavraPoder = new Palavra();
+        palavraPoder.nome = "Poder";
+        palavraPoder.imagemPalavra = "";
+        palavraPoder.somFalado = "poder";
+
+        Palavra palavraMadeira = new Palavra();
+        palavraMadeira.nome = "Madeira";
+        palavraMadeira.imagemPalavra = "";
+        palavraMadeira.somFalado = "madeira";
+
+        Palavra palavraGelido = new Palavra();
+        palavraGelido.nome = "Gelido";
+        palavraGelido.imagemPalavra = "";
+        palavraGelido.somFalado = "gelido";
+
+        Palavra palavraVenenoso = new Palavra();
+        palavraVenenoso.nome = "Venenoso";
+        palavraVenenoso.imagemPalavra = "";
+        palavraVenenoso.somFalado = "venenoso";
+
+        Palavra palavraEscorpiao = new Palavra();
+        palavraEscorpiao.nome = "Escorpiao";
+        palavraEscorpiao.imagemPalavra = "";
+        palavraEscorpiao.somFalado = "escorpiao";
+
+        Palavra palavraSantificado = new Palavra();
+        palavraSantificado.nome = "Santificado";
+        palavraSantificado.imagemPalavra = "";
+        palavraSantificado.somFalado = "santificado";
+
+        Palavra palavraPrecioso = new Palavra();
+        palavraPrecioso.nome = "Precioso";
+        palavraPrecioso.imagemPalavra = "";
+        palavraPrecioso.somFalado = "precioso";
+
+        Palavra palavraChapeu = new Palavra();
+        palavraChapeu.nome = "Chapeu";
+        palavraChapeu.imagemPalavra = "";
+        palavraChapeu.somFalado = "chapeu";
+
+
+
+
 
         PalavraLoja nave = new PalavraLoja();
         nave.palavra = palavraNave;
@@ -673,6 +726,77 @@ public class Inicial : MonoBehaviour
         testeCinco.palavraAnterior = "";
 
         
+        // PalavraLojas que serão adicionadas abaixo abaixo
+        PalavraLoja coragem = new PalavraLoja();
+        coragem.palavra = palavraCoragem;
+        coragem.nomePremio = "Emblema da Coragem";
+        coragem.imagemPremio = "Coragem";
+        coragem.descPremio = "Demonstre sua coragem com este emblema.";
+        coragem.palavraAnterior = "";
+
+        PalavraLoja heroismo = new PalavraLoja();
+        heroismo.palavra = palavraHeroismo;
+        heroismo.nomePremio = "Emblema do Heroísmo";
+        heroismo.imagemPremio = "Heroismo";
+        heroismo.descPremio = "Mostre seu heroísmo ao ostentar este emblema.";
+        heroismo.palavraAnterior = "";
+
+        PalavraLoja poder = new PalavraLoja();
+        poder.palavra = palavraPoder;
+        poder.nomePremio = "Emblema do Poder";
+        poder.imagemPremio = "Poder";
+        poder.descPremio = "Apresente este emblema para exibir seu poder.";
+        poder.palavraAnterior = "";
+
+        PalavraLoja madeira = new PalavraLoja();
+        madeira.palavra = palavraMadeira;
+        madeira.nomePremio = "Escudo de Madeira";
+        madeira.imagemPremio = "Madeira";
+        madeira.descPremio = "Este escudo evidencia sua proficiência com madeira.";
+        madeira.palavraAnterior = "";
+
+        PalavraLoja gelido = new PalavraLoja();
+        gelido.palavra = palavraGelido;
+        gelido.nomePremio = "Escudo Gélido";
+        gelido.imagemPremio = "Gelido";
+        gelido.descPremio = "Este escudo anuncia que você possui capacidade para sobreviver em ambientes extremos.";
+        gelido.palavraAnterior = "";
+
+        PalavraLoja venenoso = new PalavraLoja();
+        venenoso.palavra = palavraVenenoso;
+        venenoso.nomePremio = "Escudo Venenoso";
+        venenoso.imagemPremio = "Venenoso";
+        venenoso.descPremio = "Este escudo manifesta sua dominância sobre os elementos mais perigosos existentes.";
+        venenoso.palavraAnterior = "";
+
+        PalavraLoja escorpiao = new PalavraLoja();
+        escorpiao.palavra = palavraEscorpiao;
+        escorpiao.nomePremio = "Amuleto de Escorpião";
+        escorpiao.imagemPremio = "Escorpiao";
+        escorpiao.descPremio = "Um amuleto na forma de um escorpião que protege o usuário da temível criatura que dá seu nome.";
+        escorpiao.palavraAnterior = "";
+
+        PalavraLoja santificado = new PalavraLoja();
+        santificado.palavra = palavraSantificado;
+        santificado.nomePremio = "Amuleto Santificado";
+        santificado.imagemPremio = "Santificado";
+        santificado.descPremio = "Um amuleto no formato de uma cruz. Rumores dizem que seu usuário recebe proteção divina.";
+        santificado.palavraAnterior = "";
+
+        PalavraLoja precioso = new PalavraLoja();
+        precioso.palavra = palavraPrecioso;
+        precioso.nomePremio = "Amuleto Precioso";
+        precioso.imagemPremio = "Precioso";
+        precioso.descPremio = "Um amuleto que possui pedras preciosas embuídas em si. Acredita-se que não possui propriedades mágicas, mas deve valer bastante nas mãos certas.";
+        precioso.palavraAnterior = "";
+
+        PalavraLoja chapeu = new PalavraLoja();
+        chapeu.palavra = palavraChapeu;
+        chapeu.nomePremio = "Chapéu Mágico";
+        chapeu.imagemPremio = "Chapeu";
+        chapeu.descPremio = "Um chapéu de aparência curioso. Acredita-se que possua propriedades mágicas.";
+        chapeu.palavraAnterior = "";
+        
 
         //LetraInventario letraInventario1 = new LetraInventario();
 
@@ -714,18 +838,28 @@ public class Inicial : MonoBehaviour
         InfoPronuncia.letras.Add(Z);
 
         InfoPronuncia.palavraLojas = new List<PalavraLoja>();
-        InfoPronuncia.palavraLojas.Add(nave);
-        InfoPronuncia.palavraLojas.Add(capa);
-        InfoPronuncia.palavraLojas.Add(resistenciaUm);
-        InfoPronuncia.palavraLojas.Add(resistenciaDois);
-        InfoPronuncia.palavraLojas.Add(resistenciaTres);
-        InfoPronuncia.palavraLojas.Add(ataqueUm);
-        InfoPronuncia.palavraLojas.Add(vidaExtra);
-        InfoPronuncia.palavraLojas.Add(testeUm);
-        InfoPronuncia.palavraLojas.Add(testeDois);
-        InfoPronuncia.palavraLojas.Add(testeTres);
-        InfoPronuncia.palavraLojas.Add(testeQuatro);
-        InfoPronuncia.palavraLojas.Add(testeCinco);
+        // InfoPronuncia.palavraLojas.Add(nave);
+        // InfoPronuncia.palavraLojas.Add(capa);
+        // InfoPronuncia.palavraLojas.Add(resistenciaUm);
+        // InfoPronuncia.palavraLojas.Add(resistenciaDois);
+        // InfoPronuncia.palavraLojas.Add(resistenciaTres);
+        // InfoPronuncia.palavraLojas.Add(ataqueUm);
+        // InfoPronuncia.palavraLojas.Add(vidaExtra);
+        // InfoPronuncia.palavraLojas.Add(testeUm);
+        // InfoPronuncia.palavraLojas.Add(testeDois);
+        // InfoPronuncia.palavraLojas.Add(testeTres);
+        // InfoPronuncia.palavraLojas.Add(testeQuatro);
+        // InfoPronuncia.palavraLojas.Add(testeCinco);
+        InfoPronuncia.palavraLojas.Add(coragem);
+        InfoPronuncia.palavraLojas.Add(heroismo);
+        InfoPronuncia.palavraLojas.Add(poder);
+        InfoPronuncia.palavraLojas.Add(madeira);
+        InfoPronuncia.palavraLojas.Add(gelido);
+        InfoPronuncia.palavraLojas.Add(venenoso);
+        InfoPronuncia.palavraLojas.Add(escorpiao);
+        InfoPronuncia.palavraLojas.Add(santificado);
+        InfoPronuncia.palavraLojas.Add(precioso);
+        InfoPronuncia.palavraLojas.Add(chapeu);
 
 
         InfoPronuncia.usuarios = new List<Usuario>();

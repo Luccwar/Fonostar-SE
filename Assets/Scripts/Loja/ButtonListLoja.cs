@@ -73,7 +73,7 @@ public class ButtonListLoja : MonoBehaviour
                     //item.transform.Find("ImageJaPossui").gameObject.SetActive(true);
                 }
                 item.GetComponentInChildren<TextMeshProUGUI>().SetText(pl.nomePremio);
-                item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
+                item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/Loja Icons/" + pl.imagemPremio);
                 item.transform.SetParent(itemTemplate.transform.parent, false);
             }
             else
@@ -96,7 +96,7 @@ public class ButtonListLoja : MonoBehaviour
                         item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
                     }
                     item.GetComponentInChildren<TextMeshProUGUI>().SetText(pl.nomePremio);
-                    item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
+                    item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/Loja Icons/" + pl.imagemPremio);
                     item.transform.SetParent(itemTemplate.transform.parent, false);
                 }
             }
@@ -147,7 +147,7 @@ public class ButtonListLoja : MonoBehaviour
         }
         letrasPossuidas = new string(charArray);
         textLetrasPossuidas.GetComponent<TextMeshProUGUI>().text = "Letras possuídas para comprar este item: " + letrasPossuidas;
-        imagePremio.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/" + pl.imagemPremio);
+        imagePremio.GetComponent<Image>().sprite = Resources.Load<Sprite>("Sprites/Loja Icons/" + pl.imagemPremio);
         palavraLojaConfirma = pl;
         buttonConfirmar.GetComponent<Button>().onClick.RemoveAllListeners();
         buttonConfirmar.GetComponent<Button>().onClick.AddListener(delegate{ConfirmarCompra(pl, usuario);});

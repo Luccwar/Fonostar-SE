@@ -15,6 +15,7 @@ public class ButtonListControl : MonoBehaviour
     private GameObject selecaoCanvas;
     private GameObject faseCanvas;
     private GameObject buttonRetornar;
+    private GameObject buttonRetornar2;
     private GameObject palavraTexto;
     private GameObject faseImage;
     private GameObject botaoOuvir;
@@ -27,6 +28,8 @@ public class ButtonListControl : MonoBehaviour
         faseCanvas = GameObject.Find("FaseCanvas");
         buttonRetornar = GameObject.Find("ButtonRetornar");
         buttonRetornar.GetComponent<Button>().onClick.AddListener(delegate{Inicial.trocarCena();});
+        buttonRetornar2 = GameObject.Find("BotaoRetornar");
+        buttonRetornar2.GetComponent<Button>().onClick.AddListener(delegate{RetornarSelecao();});
         palavraTexto = GameObject.Find("PalavraTexto");
         faseImage = GameObject.Find("FaseImage");
         botaoOuvir = GameObject.Find("BotaoOuvir");

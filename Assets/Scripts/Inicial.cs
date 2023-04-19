@@ -648,6 +648,7 @@ public class Inicial : MonoBehaviour
         nave.descPremio = "Derrote oponentes com uma nave novinha em folha.";
         nave.palavraAnterior = "";
 
+
         PalavraLoja capa = new PalavraLoja();
         capa.palavra = palavraCapacete;
         capa.nomePremio = "Capacete";
@@ -733,6 +734,7 @@ public class Inicial : MonoBehaviour
         coragem.imagemPremio = "Coragem";
         coragem.descPremio = "Demonstre sua coragem com este emblema.";
         coragem.palavraAnterior = "";
+        coragem.exibivel = true;
 
         PalavraLoja heroismo = new PalavraLoja();
         heroismo.palavra = palavraHeroismo;
@@ -740,6 +742,8 @@ public class Inicial : MonoBehaviour
         heroismo.imagemPremio = "Heroismo";
         heroismo.descPremio = "Mostre seu heroísmo ao ostentar este emblema.";
         heroismo.palavraAnterior = "";
+        heroismo.exibivel = true;
+
 
         PalavraLoja poder = new PalavraLoja();
         poder.palavra = palavraPoder;
@@ -747,6 +751,7 @@ public class Inicial : MonoBehaviour
         poder.imagemPremio = "Poder";
         poder.descPremio = "Apresente este emblema para exibir seu poder.";
         poder.palavraAnterior = "";
+        poder.exibivel = true;
 
         PalavraLoja madeira = new PalavraLoja();
         madeira.palavra = palavraMadeira;
@@ -754,6 +759,7 @@ public class Inicial : MonoBehaviour
         madeira.imagemPremio = "Madeira";
         madeira.descPremio = "Este escudo evidencia sua proficiência com madeira.";
         madeira.palavraAnterior = "";
+        madeira.exibivel = true;
 
         PalavraLoja gelido = new PalavraLoja();
         gelido.palavra = palavraGelido;
@@ -761,6 +767,7 @@ public class Inicial : MonoBehaviour
         gelido.imagemPremio = "Gelido";
         gelido.descPremio = "Este escudo anuncia que você possui capacidade para sobreviver em ambientes extremos.";
         gelido.palavraAnterior = "";
+        gelido.exibivel = true;
 
         PalavraLoja venenoso = new PalavraLoja();
         venenoso.palavra = palavraVenenoso;
@@ -768,6 +775,7 @@ public class Inicial : MonoBehaviour
         venenoso.imagemPremio = "Venenoso";
         venenoso.descPremio = "Este escudo manifesta sua dominância sobre os elementos mais perigosos existentes.";
         venenoso.palavraAnterior = "";
+        venenoso.exibivel = true;
 
         PalavraLoja escorpiao = new PalavraLoja();
         escorpiao.palavra = palavraEscorpiao;
@@ -775,6 +783,7 @@ public class Inicial : MonoBehaviour
         escorpiao.imagemPremio = "Escorpiao";
         escorpiao.descPremio = "Um amuleto na forma de um escorpião que protege o usuário da temível criatura que dá seu nome.";
         escorpiao.palavraAnterior = "";
+        escorpiao.exibivel = true;
 
         PalavraLoja santificado = new PalavraLoja();
         santificado.palavra = palavraSantificado;
@@ -782,6 +791,7 @@ public class Inicial : MonoBehaviour
         santificado.imagemPremio = "Santificado";
         santificado.descPremio = "Um amuleto no formato de uma cruz. Rumores dizem que seu usuário recebe proteção divina.";
         santificado.palavraAnterior = "";
+        santificado.exibivel = true;
 
         PalavraLoja precioso = new PalavraLoja();
         precioso.palavra = palavraPrecioso;
@@ -789,6 +799,7 @@ public class Inicial : MonoBehaviour
         precioso.imagemPremio = "Precioso";
         precioso.descPremio = "Um amuleto que possui pedras preciosas embuídas em si. Acredita-se que não possui propriedades mágicas, mas deve valer bastante nas mãos certas.";
         precioso.palavraAnterior = "";
+        precioso.exibivel = false;
 
         PalavraLoja chapeu = new PalavraLoja();
         chapeu.palavra = palavraChapeu;
@@ -796,6 +807,7 @@ public class Inicial : MonoBehaviour
         chapeu.imagemPremio = "Chapeu";
         chapeu.descPremio = "Um chapéu de aparência curioso. Acredita-se que possua propriedades mágicas.";
         chapeu.palavraAnterior = "";
+        chapeu.exibivel = false;
         
 
         //LetraInventario letraInventario1 = new LetraInventario();
@@ -915,6 +927,8 @@ public class Inicial : MonoBehaviour
     public static void trocarCena(string nomeCena)
     {
         SceneManager.LoadScene(nomeCena);
+        InfoPronuncia.usuarios[0].inventario = PlayerPrefs.GetString("LetrasInventario");
+        InfoPronuncia.usuarios[0].palavrasObtidas = PlayerPrefs.GetString("PalavrasObtidas");
         //Debug.Log(InfoPronuncia.usuarioAtivo.inventario);
     }
 

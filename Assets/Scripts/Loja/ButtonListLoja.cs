@@ -65,11 +65,29 @@ public class ButtonListLoja : MonoBehaviour
                 if(InfoPronuncia.usuarioAtivo.palavrasObtidas.Contains(pl.palavra.nome.ToUpper()))
                 {
                     item.GetComponent<Button>().interactable = false;
+                    if(PlayerPrefs.GetString("PremioExibido") == pl.nomePremio)
+                    {
+                        item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                        item.transform.Find("ButtonExibir").gameObject.SetActive(false);
+                    }
+                    else if(pl.exibivel)
+                    {
+                        item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                        item.transform.Find("ImageExibindo").gameObject.SetActive(false);
+                        item.transform.Find("ButtonExibir").GetComponent<Button>().onClick.AddListener(delegate{ExibirPremio(pl.nomePremio);});
+                    }
+                    else
+                    {
+                        item.transform.Find("ButtonExibir").gameObject.SetActive(false);
+                        item.transform.Find("ImageExibindo").gameObject.SetActive(false);
+                    }
                 }
                 else
                 {
                     item.GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
                     item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                    item.transform.Find("ButtonExibir").gameObject.SetActive(false);
+                    item.transform.Find("ImageExibindo").gameObject.SetActive(false);
                     //item.transform.Find("ImageJaPossui").gameObject.SetActive(true);
                 }
                 item.GetComponentInChildren<TextMeshProUGUI>().SetText(pl.nomePremio);
@@ -88,12 +106,30 @@ public class ButtonListLoja : MonoBehaviour
                         //item.transform.Find("ButtonComprar").GetComponent<Button>().interactable = false;
                         //item.transform.Find("ButtonComprar").GetComponentInChildren<TextMeshProUGUI>().text = "Comprado";
                         item.GetComponent<Button>().interactable = false;
+                        if(PlayerPrefs.GetString("PremioExibido") == pl.nomePremio)
+                        {
+                            item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                            item.transform.Find("ButtonExibir").gameObject.SetActive(false);
+                        }
+                        else if(pl.exibivel)
+                        {
+                            item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                            item.transform.Find("ImageExibindo").gameObject.SetActive(false);
+                            item.transform.Find("ButtonExibir").GetComponent<Button>().onClick.AddListener(delegate{ExibirPremio(pl.nomePremio);});
+                        }
+                        else
+                        {
+                            item.transform.Find("ImageExibindo").gameObject.SetActive(false);
+                            item.transform.Find("ButtonExibir").gameObject.SetActive(false);
+                        }
                     }
                     else
                     {
                         //item.transform.Find("ButtonComprar").GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
                         item.GetComponent<Button>().onClick.AddListener(delegate{AparecerConfirmacao(pl, InfoPronuncia.usuarioAtivo);});
                         item.transform.Find("ImageJaPossui").gameObject.SetActive(false);
+                        item.transform.Find("ButtonExibir").gameObject.SetActive(false);
+                        item.transform.Find("ImageExibindo").gameObject.SetActive(false);
                     }
                     item.GetComponentInChildren<TextMeshProUGUI>().SetText(pl.nomePremio);
                     item.transform.Find("ImagePremio").GetComponentInChildren<Image>().sprite = Resources.Load<Sprite>("Sprites/Loja Icons/" + pl.imagemPremio);
@@ -179,8 +215,11 @@ public class ButtonListLoja : MonoBehaviour
                 achou=false;
                 panelConfirmacao.SetActive(true);
                 panelConfirmacao.GetComponentInChildren<TextMeshProUGUI>().text = "Você não possui todas as letras necessárias para comprar esta palavra";
-                panelConfirmacao.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
-                panelConfirmacao.GetComponentInChildren<Button>().onClick.AddListener(delegate{fecharPanelConfirmacao();});
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").gameObject.SetActive(true);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").GetComponent<Button>().onClick.RemoveAllListeners();
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").GetComponent<Button>().onClick.AddListener(delegate{fecharPanelConfirmacao();});
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonSim").gameObject.SetActive(false);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonNao").gameObject.SetActive(false);
                 break;
             }
         }
@@ -200,12 +239,41 @@ public class ButtonListLoja : MonoBehaviour
             PlayerPrefs.SetString("PalavrasObtidas", usuario.palavrasObtidas);
 
             panelConfirmacao.SetActive(true);
-            panelConfirmacao.GetComponentInChildren<TextMeshProUGUI>().text = "Você comprou o prêmio "+palavraLojaConfirma.nomePremio+"!";
-            panelConfirmacao.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
-            panelConfirmacao.GetComponentInChildren<Button>().onClick.AddListener(delegate{RetornarLoja();});
+            if(pl.exibivel)
+            {
+                panelConfirmacao.GetComponentInChildren<TextMeshProUGUI>().text = "Você comprou o prêmio "+palavraLojaConfirma.nomePremio+"! Gostaria de exibí-lo no menu principal?";
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").gameObject.SetActive(false);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonSim").gameObject.SetActive(true);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonSim").GetComponent<Button>().onClick.RemoveAllListeners();
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonSim").GetComponent<Button>().onClick.AddListener(delegate{ExibirPremioConfirmacao(pl.nomePremio);});
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonNao").gameObject.SetActive(true);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonNao").GetComponent<Button>().onClick.RemoveAllListeners();
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonNao").GetComponent<Button>().onClick.AddListener(delegate{RetornarLoja();});
+            }
+            else
+            {
+                panelConfirmacao.GetComponentInChildren<TextMeshProUGUI>().text = "Você comprou o prêmio "+palavraLojaConfirma.nomePremio+"!";
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").gameObject.SetActive(true);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").GetComponent<Button>().onClick.RemoveAllListeners();
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").GetComponent<Button>().onClick.AddListener(delegate{RetornarLoja();});
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonSim").gameObject.SetActive(false);
+                panelConfirmacao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonNao").gameObject.SetActive(false);
+            }
             //Debug.Log(usuario.palavrasObtidas);
         }
         Debug.Log(usuario.palavrasObtidas);
+    }
+
+    void ExibirPremio(string premioExibido)
+    {
+        PlayerPrefs.SetString("PremioExibido", premioExibido);
+        GenerateList();
+    }
+
+    void ExibirPremioConfirmacao(string premioExibido)
+    {
+        PlayerPrefs.SetString("PremioExibido", premioExibido);
+        RetornarLoja();
     }
 
     public void RetornarLoja()

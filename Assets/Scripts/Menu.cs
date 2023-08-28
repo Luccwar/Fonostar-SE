@@ -44,8 +44,11 @@ public class Menu : MonoBehaviour
         // buttonLoja.GetComponent<Button>().onClick.AddListener(delegate{Inicial.trocarCena("LojaPalavra");});
         buttonApagarDados = GameObject.Find("ButtonApagarDados");
         buttonApagarDados.GetComponent<Button>().onClick.AddListener(delegate{ApagarDados();});
+
         buttonDarLetras = GameObject.Find("ButtonDarLetras");
-        buttonDarLetras.GetComponent<Button>().onClick.AddListener(delegate{DarLetras();});
+        if(buttonDarLetras != null)
+            buttonDarLetras.GetComponent<Button>().onClick.AddListener(delegate{DarLetras();});
+
         panelExibicao.GetComponentInChildren<Button>().onClick.RemoveAllListeners();
         panelExibicao.GetComponentInChildren<Button>().onClick.AddListener(delegate{FecharPanelExibicao();});
         //panelExibicao.transform.Find("FundoBranco").transform.Find("FundoCinza").transform.Find("ButtonFechar").GetComponentInChildren<Button>().onClick.RemoveAllListeners();
@@ -67,7 +70,9 @@ public class Menu : MonoBehaviour
 
     protected void ApagarDados()
     {
+        buttonExibicao.GetComponent<Button>().interactable = false;
         PlayerPrefs.DeleteAll();
+
     }
 
     protected void DarLetras()
